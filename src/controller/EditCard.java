@@ -40,7 +40,7 @@ public class EditCard extends HttpServlet {
 		// TODO Auto-generated method stub
 		MagicCardHelper mch = new MagicCardHelper();
 		
-		String name = request.getParameter("CardName");
+		String name = request.getParameter("cardName");
 		String type = request.getParameter("cardType");
 		
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
@@ -48,6 +48,7 @@ public class EditCard extends HttpServlet {
 		MagicCards CardToUpdate = mch.searchForItemByID(tempId);
 		CardToUpdate.setName(name);
 		CardToUpdate.setType(type);
+		
 		mch.updateItem(CardToUpdate);
 		
 		getServletContext().getRequestDispatcher("/viewAllItemsServlet").forward(request, response);
