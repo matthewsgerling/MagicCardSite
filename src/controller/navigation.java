@@ -37,7 +37,7 @@ public class navigation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String act = request.getParameter("doThisToItem");
+		String act = request.getParameter("doThisToCard");
 		MagicCardHelper mch = new MagicCardHelper();
 		
 		if (act == null) {
@@ -59,17 +59,17 @@ public class navigation extends HttpServlet {
 		} else if (act.equals("edit")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
-				MagicCards CardToEdit = mch.searchForItemByID(tempId);
-				request.setAttribute("cardToEdit", CardToEdit);
+				MagicCards itemToEdit =mch.searchForItemByID(tempId);
+				request.setAttribute("itemToEdit", itemToEdit);
 				getServletContext().getRequestDispatcher("/editCard.jsp").forward(request, response);
 			} catch (NumberFormatException e) {
 				getServletContext().getRequestDispatcher("/AllCards").forward(request, response);
-			}
+			} 
 			
 		} else if (act.equals("add")) {
 			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		}
-		doGet(request, response);
+		
 	}
 
 }

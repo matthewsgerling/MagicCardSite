@@ -10,12 +10,12 @@
 <body>
 <form method = "post" action = "navigation">
 <table>
-<c:forEach items="${requestScope.allCards}" var="currentcard">
+<c:forEach items="${requestScope.AllCards}" var="currentcard">
 <tr>
- <td><input type="radio" name="id" value="${currentitem.id}"></td>
- <td>${currentitem.cardName}</td>
- <td>${currentitem.cardType}</td>
- <td>${currentitem.manaCost}</td>
+ <td><input type="radio" name="id" value="${currentcard.getId()}"></td>
+ <td>${currentcard.getName()}</td>
+ <td>${currentcard.getType()}</td>
+ <td>${currentcard.getManaCost()}</td>
  </tr>
 </c:forEach>
 </table>

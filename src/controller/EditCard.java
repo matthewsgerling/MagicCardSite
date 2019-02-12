@@ -42,16 +42,18 @@ public class EditCard extends HttpServlet {
 		
 		String name = request.getParameter("cardName");
 		String type = request.getParameter("cardType");
+		String manacost = request.getParameter("manaCost");
 		
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
 		
 		MagicCards CardToUpdate = mch.searchForItemByID(tempId);
 		CardToUpdate.setName(name);
 		CardToUpdate.setType(type);
+		CardToUpdate.setManaCost(Integer.parseInt(manacost));
 		
 		mch.updateItem(CardToUpdate);
 		
-		getServletContext().getRequestDispatcher("/viewAllItemsServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/AllCards").forward(request, response);
 
 	}
 

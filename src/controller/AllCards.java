@@ -28,9 +28,9 @@ public class AllCards extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		MagicCardHelper mch = new MagicCardHelper();
-		request.setAttribute("AllCard", mch.showAllItems());
+		request.setAttribute("AllCards", mch.showAllItems());
 		if(mch.showAllItems().isEmpty()){
-			request.setAttribute("AllCard", " ");
+			request.setAttribute("AllCards", " ");
 		}
 		getServletContext().getRequestDispatcher("/MagicCards.jsp").forward(request, response);
 	}
